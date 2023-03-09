@@ -5,6 +5,38 @@ export NVM_DIR=~/.nvm
 # shellcheck disable=SC1091
 source $NVM_DIR/nvm.sh
 
+export APPS_JSON='[
+  {
+    "url": "https://github.com/frappe/payments",
+    "branch": "develop"
+  },
+  {
+    "url": "https://github.com/intellimomentum/erpnext",
+    "branch": "v14.18.2-cust"
+  },
+  {
+    "url": "https://github.com/intellimomentum/hrms",
+    "branch": "v1.0.0"
+  },
+  {
+    "url": "https://github.com/intellimomentum/erpnext_germany",
+    "branch": "version-14"
+  },
+  {
+    "url": "https://github.com/intellimomentum/erpnext_datev",
+    "branch": "version-14"
+  },
+  {
+    "url": "https://github.com/intellimomentum/erpnextfints",
+    "branch": "master"
+  },
+  {
+    "url": "https://github.com/intellimomentum/erpnext_customization",
+    "branch": "main"
+  }
+]'
+export APPS_JSON_BASE64=$(echo ${APPS_JSON} | base64 -w 0)
+
 sudo apt -qq update && sudo apt -qq install jq -y
 
 get_client_apps() {
